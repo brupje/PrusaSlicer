@@ -2784,6 +2784,46 @@ void PrintConfigDef::init_fff_params()
                    "It won't work when printing more than one single object.");
     def->set_default_value(new ConfigOptionBool(false));
 
+
+
+    def = this->add("spiral_vase_bottom_fillet", coBool);
+    def->label = L("Enable bottom fillet");
+    def->tooltip = L("Create a fillet on top of the bottom layers");
+    def->category = L("Spiral Vase");
+    def->mode = comAdvanced;
+    def->set_default_value(new ConfigOptionBool(false));
+
+
+    def = this->add("spiral_vase_bottom_fillet_curve", coInt);
+    def->label = L("Curve factor");
+    def->category = L("Spiral Vase");
+    def->tooltip = L("Curve of the fillet, (0-20) Default is 5. 0=chamfer.");
+    def->mode = comAdvanced;
+    def->set_default_value(new ConfigOptionInt(5));
+    def->min =0;
+    def->max =20;
+
+    def = this->add("spiral_vase_bottom_lock_perimeters", coFloat);
+    def->label = L("Add edge closing perimeters on top of the bottom of the object");
+    def->sidetext = L("mm");
+    def->category = L("Spiral Vase");
+    def->tooltip = L("This feature will add extra perimeters on top of the top bottom layer, 'locking in' the edge between the vase perimeter and bottom infill.");
+    def->mode = comAdvanced;
+    def->set_default_value(new ConfigOptionFloat(0));
+    def->min = 0;
+
+    def = this->add("spiral_vase_bottom_lock_num_layers", coInt);
+    def->label = L("Number of layers for edge closing perimeters");
+    def->category = L("Spiral Vase");
+    def->tooltip = L("Define the number of layer.");
+    def->mode = comAdvanced;
+    def->set_default_value(new ConfigOptionInt(1));
+    def->min =1;
+
+
+
+    
+
     def = this->add("standby_temperature_delta", coInt);
     def->label = L("Temperature variation");
     // TRN PrintSettings : "Ooze prevention" > "Temperature variation"

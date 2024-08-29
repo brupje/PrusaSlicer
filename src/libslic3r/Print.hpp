@@ -309,7 +309,7 @@ public:
     const Layer*	get_first_layer_bellow_printz(coordf_t print_z, coordf_t epsilon) const;
 
     // print_z: top of the layer; slice_z: center of the layer.
-    Layer*          add_layer(int id, coordf_t height, coordf_t print_z, coordf_t slice_z);
+    //Layer*          add_layer(int id, coordf_t height, coordf_t print_z, coordf_t slice_z);
 
     size_t          support_layer_count() const { return m_support_layers.size(); }
     void            clear_support_layers();

@@ -665,13 +665,13 @@ void PrintObject::clear_layers()
         delete l;
     m_layers.clear();
 }
-
+/*
 Layer* PrintObject::add_layer(int id, coordf_t height, coordf_t print_z, coordf_t slice_z)
 {
     m_layers.emplace_back(new Layer(id, this, height, print_z, slice_z));
     return m_layers.back();
 }
-
+*/
 void PrintObject::clear_support_layers()
 {
     for (Layer *l : m_support_layers)
@@ -984,8 +984,18 @@ void PrintObject::detect_surfaces_type()
     // This is useful if one of the parts is to be dissolved, or if it is transparent and the internal shells
     // should be visible.
     bool spiral_vase      = this->print()->config().spiral_vase.value;
+    int spiral_vase_bottom_lock_perimeters = this->print()->config().spiral_vase_bottom_lock_perimeters.value;
     bool interface_shells = ! spiral_vase && m_config.interface_shells.value;
     size_t num_layers     = spiral_vase ? std::min(size_t(this->printing_region(0).config().bottom_solid_layers), m_layers.size()) : m_layers.size();
+
+
+    if (num_layers == m_layers.size()) {
+        spiral_vase_bottom_lock_perimeters = 0;
+    }
+
+    if (num_layers < m_layers.size() && spiral_vase_bottom_lock_perimeters > 0) {
+        num_layers += 1;
+    }
 
     for (size_t region_id = 0; region_id < this->num_printing_regions(); ++ region_id) {
         BOOST_LOG_TRIVIAL(debug) << "Detecting solid surfaces for region " << region_id << " in parallel - start";
@@ -1003,7 +1013,7 @@ void PrintObject::detect_surfaces_type()
         tbb::parallel_for(
             tbb::blocked_range<size_t>(0, 
             	spiral_vase ?
-            		// In spiral vase mode, reserve the last layer for the top surface if more than 1 layer is planned for the vase bottom.
+            		// In spiral vase mode, reserve the last layer for the top surface if more than 1 layer or 2 (spiral_vase_reserve) layer(s) is planned for the vase bottom.
             		((num_layers > 1) ? num_layers - 1 : num_layers) :
             		// In non-spiral vase mode, go over all layers.
             		m_layers.size()),
@@ -1145,9 +1155,14 @@ void PrintObject::detect_surfaces_type()
         }
 
         if (spiral_vase) {
-        	if (num_layers > 1)
-	        	// Turn the last bottom layer infill to a top infill, so it will be extruded with a proper pattern.
-	        	m_layers[num_layers - 1]->m_regions[region_id]->m_slices.set_type(stTop);
+        	if (spiral_vase_bottom_lock_perimeters > 0 && num_layers > 2) {
+                // Turn the last bottom layer infill to a top infill, so it will be extruded with a proper pattern.
+                m_layers[num_layers - 2]->m_regions[region_id]->m_slices.set_type(stTop);
+                m_layers[num_layers - 1]->m_regions[region_id]->m_slices.set_type(stPerimeter);
+            } else if (num_layers > 1) {
+                m_layers[num_layers - 1]->m_regions[region_id]->m_slices.set_type(stTop);
+            }
+
 	        for (size_t i = num_layers; i < m_layers.size(); ++ i)
 	        	m_layers[i]->m_regions[region_id]->m_slices.set_type(stInternal);
         }
