@@ -97,19 +97,21 @@ void LayerRegion::make_perimeters(
          this->layer()->print_z >= region_config.bottom_solid_min_thickness - EPSILON);
 
 
+    float internal_width = region_config.perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.perimeter_extrusion_width.value;
+                
 
     if (print_config.spiral_vase && 
         (print_config.spiral_vase_bottom_lock_perimeters.value > 0 )) {
 
 
         if             (
-        (this->layer()->id() >= size_t(region_config.bottom_solid_layers.value) ) &&
-        (this->layer()->id() < size_t(region_config.bottom_solid_layers.value) + print_config.spiral_vase_bottom_lock_num_layers )
+        (this->layer()->id() >= (region_config.bottom_solid_layers.value) ) &&
+        (this->layer()->id() < (region_config.bottom_solid_layers.value) + print_config.spiral_vase_bottom_lock_num_layers )
         
         ) {
 
             float external_width = region_config.external_perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.external_perimeter_extrusion_width.value;
-            float internal_width = region_config.perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.perimeter_extrusion_width.value;
+            //internal_width = region_config.perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.perimeter_extrusion_width.value;
 
             BOOST_LOG_TRIVIAL(error) << "Applying bottom lock perimeters of: " << print_config.spiral_vase_bottom_lock_perimeters.value << " mm / " << std::to_string(internal_width) << " mm, external width: " << external_width << " mm";
             
@@ -124,33 +126,41 @@ void LayerRegion::make_perimeters(
 
             BOOST_LOG_TRIVIAL(error) << "Override perimeter width: " <<  std::to_string(region_config.perimeter_extrusion_width.value) << " mm";
         }
-        else if (print_config.spiral_vase_bottom_fillet.value ) {
+        else if (print_config.spiral_vase_bottom_fillet.value && ( this->layer()->id() >= region_config.bottom_solid_layers.value)) {
 
             uint16_t fillet_height = print_config.spiral_vase_bottom_lock_perimeters.value  / this->layer()->height;
 
-            BOOST_LOG_TRIVIAL(error) << "Nr of fillet layers: " << fillet_height;
-
-
-            if (this->layer()->id() < size_t(region_config.bottom_solid_layers.value) + print_config.spiral_vase_bottom_lock_num_layers +fillet_height) {
-                
-                uint16_t cur_fillet_layer = this->layer()->id() - size_t(region_config.bottom_solid_layers.value) -  print_config.spiral_vase_bottom_lock_num_layers;
-                BOOST_LOG_TRIVIAL(error) << "Current fillet layer: " << cur_fillet_layer;
-
-                float layerwidth = (print_config.spiral_vase_bottom_lock_perimeters.value  - cur_fillet_layer*this->layer()->height) / ( 1/print_config.spiral_vase_bottom_lock_perimeters.value * print_config.spiral_vase_bottom_fillet_curve.value *cur_fillet_layer*this->layer()->height  +1 );
             
-                BOOST_LOG_TRIVIAL(error) << "Fillet width layer: " << std::to_string(layerwidth);
 
+
+            if (this->layer()->id() < (region_config.bottom_solid_layers.value) + print_config.spiral_vase_bottom_lock_num_layers +fillet_height) {
+                
+                
+                uint16_t cur_fillet_layer = this->layer()->id() - (region_config.bottom_solid_layers.value) -  print_config.spiral_vase_bottom_lock_num_layers;
+                
+
+                float layerwidth = (print_config.spiral_vase_bottom_lock_perimeters.value  - cur_fillet_layer*this->layer()->height) 
+                    / ( 1/print_config.spiral_vase_bottom_lock_perimeters.value 
+                        * print_config.spiral_vase_bottom_fillet_curve.value * cur_fillet_layer * this->layer()->height  +1 );
+            
+   
+
+                
                 float external_width = region_config.external_perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.external_perimeter_extrusion_width.value;
-                float internal_width = region_config.perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.perimeter_extrusion_width.value;
                 if (layerwidth > external_width) {
                     region_config.perimeters.value =  round((layerwidth - external_width) / internal_width) + 1;
-                    BOOST_LOG_TRIVIAL(error) << "Total number of perimeters: " << region_config.perimeters.value;
                     
-                    region_config.perimeter_extrusion_width.value = (layerwidth  - external_width)/ (region_config.perimeters.value-1);
+                    internal_width = (layerwidth  - external_width)/ (region_config.perimeters.value-1);
 
-                    BOOST_LOG_TRIVIAL(error) << "Override perimeter width: " <<  std::to_string(region_config.perimeter_extrusion_width.value) << " mm";
+                    BOOST_LOG_TRIVIAL(error) << "Layer "<<this->layer()->id()<< " Fillet layer: " << cur_fillet_layer  << "/" << fillet_height << " " << std::to_string(layerwidth) << "mm==" << region_config.perimeters.value << " perimeters@" << std::to_string(region_config.perimeter_extrusion_width.value) << "mm";
+
+
                 }
+                else
+                    BOOST_LOG_TRIVIAL(error) << "Layer "<<this->layer()->id()<< " Fillet layer: " << cur_fillet_layer  << "/" << fillet_height << " " << std::to_string(layerwidth) << "mm==smaller or equal to external perimeter";
 
+
+                
 
             }
         }
@@ -159,10 +169,15 @@ void LayerRegion::make_perimeters(
     
     }     
 
+    auto nozzle_diameter = float(print_config.nozzle_diameter.get_at(m_region->extruder(frPerimeter) - 1));
+  
+    ConfigOptionFloatOrPercent  config_width;
+    config_width.value=internal_width;
+
     PerimeterGenerator::Parameters params(
         this->layer()->height,
         int(this->layer()->id()),
-        this->flow(frPerimeter),
+         Flow::new_from_config_width(frPerimeter, config_width, nozzle_diameter, float(this->layer()->height)),
         this->flow(frExternalPerimeter),
         this->bridging_flow(frPerimeter),
         this->flow(frSolidInfill),

@@ -1,0 +1,482 @@
+
+Running check 'Phase 1: Preparation'
+=================
+APT Repositories:
+=================
+Repos:
+  No active apt repos in: /etc/apt/sources.list
+  No active apt repos in: /etc/apt/sources.list.d/brave-browser-release.list
+  Active apt repos in: /etc/apt/sources.list.d/docker.list
+    1: deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable
+  Active apt repos in: /etc/apt/sources.list.d/google.list
+    1: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+  Active apt repos in: /etc/apt/sources.list.d/kicad-kicad-8_0-releases-jammy.list
+    1: deb [signed-by=/etc/apt/keyrings/kicad-kicad-8_0-releases-jammy.gpg] https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy main
+  Active apt repos in: /etc/apt/sources.list.d/kicad-kicad-dev-nightly-jammy.list
+    1: deb [signed-by=/etc/apt/keyrings/kicad-kicad-dev-nightly-jammy.gpg] https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy main
+  Active apt repos in: /etc/apt/sources.list.d/microsoft-edge-beta.list
+    1: deb [arch=amd64] https://packages.microsoft.com/repos/edge/ stable main
+  Active apt repos in: /etc/apt/sources.list.d/microsoft-prod.list
+    1: deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/ubuntu/22.04/prod jammy main
+  Active apt repos in: /etc/apt/sources.list.d/mozillateam-ppa-jammy.list
+    1: deb [arch=amd64 signed-by=/etc/apt/keyrings/mozillateam-ppa-jammy.gpg] https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy main
+  No active apt repos in: /etc/apt/sources.list.d/mysql.list
+  Active apt repos in: /etc/apt/sources.list.d/nodesource.list
+    1: deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x jammy main
+    2: deb-src [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x jammy main
+  Active apt repos in: /etc/apt/sources.list.d/official-package-repositories.list
+    1: deb http://packages.linuxmint.com virginia main upstream import backport
+    2: deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse
+    3: deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe multiverse
+    4: deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
+    5: deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+  Active apt repos in: /etc/apt/sources.list.d/owncloud.list
+    1: deb https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04/ /
+  Active apt repos in: /etc/apt/sources.list.d/skype-stable.list
+    1: deb [arch=amd64] https://repo.skype.com/deb stable main
+  No active apt repos in: /etc/apt/sources.list.d/teams.list
+  Active apt repos in: /etc/apt/sources.list.d/vscode.list
+    1: deb [arch=amd64,arm64,armhf] http://packages.microsoft.com/repos/code stable main
+  No active apt repos in: /etc/apt/sources.list.d/winehq.list
+  Active apt repos in: /etc/apt/sources.list.d/yannubuntu-boot-repair-jammy.list
+    1: deb [signed-by=/etc/apt/keyrings/yannubuntu-boot-repair-jammy.gpg] https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy main
+  Active apt repos in: /etc/apt/sources.list.d/winehq-jammy.sources
+    1: deb [arch=amd64 i386] https://dl.winehq.org/wine-builds/ubuntu jammy main
+=================
+
+Running check 'Linux Mint version'
+Check succeeded:  Linux Mint version
+
+Running check 'Power source'
+Check succeeded:  Power source
+
+Running check 'APT cache'
+rm -rf /var/lib/apt/lists/*
+DEBIAN_PRIORITY=critical apt-get update
+Failed to open /dev/tty: No such device or address
+Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Get:2 http://dl.google.com/linux/chrome/deb stable InRelease [1.825 B]
+Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:5 https://dl.winehq.org/wine-builds/ubuntu jammy InRelease [8.041 B]
+Get:6 https://download.docker.com/linux/debian bookworm InRelease [43,3 kB]
+Get:7 https://deb.nodesource.com/node_18.x jammy InRelease [4.563 B]
+Get:8 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy InRelease [18,1 kB]
+Ign:9 https://repo.skype.com/deb stable InRelease
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:11 https://packages.microsoft.com/repos/edge stable InRelease [3.590 B]
+Get:12 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy InRelease [24,4 kB]
+Get:13 http://dl.google.com/linux/chrome/deb stable/main amd64 Packages [1.095 B]
+Ign:14 http://packages.linuxmint.com virginia InRelease
+Get:15 https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04  InRelease [1.772 B]
+Get:16 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:17 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease [3.632 B]
+Get:18 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy InRelease [24,6 kB]
+Get:19 https://dl.winehq.org/wine-builds/ubuntu jammy/main amd64 Packages [241 kB]
+Get:20 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy InRelease [18,3 kB]
+Get:4 https://packages.microsoft.com/repos/code stable InRelease [3.590 B]
+Get:21 http://packages.linuxmint.com virginia Release [24,1 kB]
+Get:22 https://dl.winehq.org/wine-builds/ubuntu jammy/main all Packages [928 B]
+Get:23 https://dl.winehq.org/wine-builds/ubuntu jammy/main i386 Packages [240 kB]
+Get:24 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [531 kB]
+Get:25 https://download.docker.com/linux/debian bookworm/stable amd64 Packages [29,4 kB]
+Get:26 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1.769 kB]
+Get:27 https://deb.nodesource.com/node_18.x jammy/main amd64 Packages [776 B]
+Get:28 http://packages.linuxmint.com virginia Release.gpg [833 B]
+Get:29 http://archive.ubuntu.com/ubuntu jammy/main i386 Packages [1.040 kB]
+Get:30 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [290 kB]
+Get:31 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [13,2 kB]
+Get:32 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [2.308 kB]
+Get:33 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main i386 Packages [4.100 B]
+Get:34 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main amd64 Packages [10,7 kB]
+Get:35 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main Translation-en [5.620 B]
+Get:36 https://packages.microsoft.com/repos/edge stable/main amd64 Packages [10,6 kB]
+Get:37 http://security.ubuntu.com/ubuntu jammy-security/restricted i386 Packages [37,3 kB]
+Get:38 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [398 kB]
+Get:39 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 c-n-f Metadata [572 B]
+Get:40 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [622 kB]
+Get:41 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [890 kB]
+Get:42 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [175 kB]
+Get:43 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [19,0 kB]
+Get:44 http://security.ubuntu.com/ubuntu jammy-security/multiverse i386 Packages [1.356 B]
+Get:45 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [37,2 kB]
+Get:46 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [7.588 B]
+Get:47 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [228 B]
+Get:48 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main amd64 Packages [10,8 kB]
+Ign:9 https://repo.skype.com/deb stable InRelease
+Err:15 https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04  InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 498C45EBE94E7B37
+Get:49 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1.395 kB]
+Get:50 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main i386 Packages [4.168 B]
+Get:51 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main Translation-en [6.268 B]
+Get:52 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main armhf Packages [15,0 kB]
+Get:53 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main arm64 Packages [42,0 kB]
+Get:54 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy/main amd64 Packages [34,2 kB]
+Get:55 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 Packages [171 kB]
+Get:56 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main all Packages [1.261 B]
+Get:57 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy/main Translation-en [7.144 B]
+Get:58 http://archive.ubuntu.com/ubuntu jammy/main Translation-en [510 kB]
+Get:59 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main amd64 Packages [1.824 B]
+Get:60 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main i386 Packages [1.824 B]
+Get:61 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main Translation-en [1.592 B]
+Get:62 http://archive.ubuntu.com/ubuntu jammy/main amd64 c-n-f Metadata [30,3 kB]
+Get:63 http://archive.ubuntu.com/ubuntu jammy/restricted i386 Packages [30,4 kB]
+Get:64 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [129 kB]
+Get:65 https://packages.microsoft.com/repos/code stable/main amd64 Packages [18,5 kB]
+Get:66 http://archive.ubuntu.com/ubuntu jammy/restricted Translation-en [18,6 kB]
+Get:67 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 c-n-f Metadata [488 B]
+Get:68 http://archive.ubuntu.com/ubuntu jammy/universe i386 Packages [7.474 kB]
+Get:69 https://packages.microsoft.com/repos/code stable/main arm64 Packages [18,6 kB]
+Get:70 https://packages.microsoft.com/repos/code stable/main armhf Packages [18,7 kB]
+Get:71 http://packages.linuxmint.com virginia/main i386 Packages [17,9 kB]
+Get:72 http://packages.linuxmint.com virginia/main amd64 Packages [18,5 kB]
+Get:73 http://packages.linuxmint.com virginia/upstream i386 Packages [14,6 kB]
+Get:74 http://packages.linuxmint.com virginia/upstream amd64 Packages [48,8 kB]
+Get:75 http://packages.linuxmint.com virginia/import amd64 Packages [8.338 B]
+Get:76 http://packages.linuxmint.com virginia/import i386 Packages [3.678 B]
+Get:77 http://packages.linuxmint.com virginia/backport i386 Packages [8.307 B]
+Get:78 http://packages.linuxmint.com virginia/backport amd64 Packages [54,9 kB]
+Get:79 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14,1 MB]
+Ign:9 https://repo.skype.com/deb stable InRelease
+Get:80 http://archive.ubuntu.com/ubuntu jammy/universe Translation-en [5.652 kB]
+Get:81 http://archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+Get:82 http://archive.ubuntu.com/ubuntu jammy/multiverse i386 Packages [112 kB]
+Get:83 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+Get:84 http://archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+Get:85 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8.372 B]
+Get:86 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1.987 kB]
+Get:87 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [690 kB]
+Get:88 http://archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [349 kB]
+Get:89 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [17,8 kB]
+Get:90 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [2.384 kB]
+Get:91 http://archive.ubuntu.com/ubuntu jammy-updates/restricted i386 Packages [38,9 kB]
+Get:92 http://archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [410 kB]
+Get:93 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 c-n-f Metadata [604 B]
+Get:94 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1.112 kB]
+Get:95 http://archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [726 kB]
+Get:96 http://archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [260 kB]
+Get:97 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [26,0 kB]
+Get:98 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse i386 Packages [4.752 B]
+Get:99 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [43,3 kB]
+Get:100 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [10,8 kB]
+Get:101 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [444 B]
+Get:102 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [67,8 kB]
+Get:103 http://archive.ubuntu.com/ubuntu jammy-backports/main i386 Packages [59,9 kB]
+Get:104 http://archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [11,1 kB]
+Get:105 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [388 B]
+Get:106 http://archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:107 http://archive.ubuntu.com/ubuntu jammy-backports/universe i386 Packages [17,3 kB]
+Get:108 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [28,8 kB]
+Get:109 http://archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16,5 kB]
+Get:110 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [672 B]
+Get:111 http://archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+Err:9 https://repo.skype.com/deb stable InRelease
+  503  Service Unavailable [IP: 104.81.140.169 443]
+Reading package lists...
+W: GPG error: https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04  InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 498C45EBE94E7B37
+E: The repository 'https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04  InRelease' is not signed.
+Error - Return code: 100
+
+Running check 'APT cache'
+rm -rf /var/lib/apt/lists/*
+DEBIAN_PRIORITY=critical apt-get update
+Failed to open /dev/tty: No such device or address
+Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:2 http://dl.google.com/linux/chrome/deb stable InRelease [1.825 B]
+Get:3 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Get:5 https://download.docker.com/linux/debian bookworm InRelease [43,3 kB]
+Get:6 https://dl.winehq.org/wine-builds/ubuntu jammy InRelease [8.041 B]
+Get:7 https://deb.nodesource.com/node_18.x jammy InRelease [4.563 B]
+Ign:8 https://repo.skype.com/deb stable InRelease
+Get:9 https://packages.microsoft.com/repos/edge stable InRelease [3.590 B]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:11 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy InRelease [18,1 kB]
+Get:12 http://dl.google.com/linux/chrome/deb stable/main amd64 Packages [1.095 B]
+Get:13 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease [3.632 B]
+Ign:14 http://packages.linuxmint.com virginia InRelease
+Get:15 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:16 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy InRelease [24,4 kB]
+Get:4 https://packages.microsoft.com/repos/code stable InRelease [3.590 B]
+Get:17 https://dl.winehq.org/wine-builds/ubuntu jammy/main all Packages [928 B]
+Get:18 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy InRelease [24,6 kB]
+Get:19 https://dl.winehq.org/wine-builds/ubuntu jammy/main amd64 Packages [241 kB]
+Get:20 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy InRelease [18,3 kB]
+Get:21 http://packages.linuxmint.com virginia Release [24,1 kB]
+Get:22 https://dl.winehq.org/wine-builds/ubuntu jammy/main i386 Packages [240 kB]
+Get:23 https://download.docker.com/linux/debian bookworm/stable amd64 Packages [29,4 kB]
+Get:24 https://deb.nodesource.com/node_18.x jammy/main amd64 Packages [776 B]
+Get:25 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1.769 kB]
+Get:26 http://packages.linuxmint.com virginia Release.gpg [833 B]
+Get:27 http://archive.ubuntu.com/ubuntu jammy/main i386 Packages [1.040 kB]
+Get:28 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [531 kB]
+Get:29 https://packages.microsoft.com/repos/edge stable/main amd64 Packages [10,6 kB]
+Get:30 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main i386 Packages [4.100 B]
+Get:31 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [290 kB]
+Get:32 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [13,2 kB]
+Get:33 http://security.ubuntu.com/ubuntu jammy-security/restricted i386 Packages [37,3 kB]
+Get:34 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [2.308 kB]
+Get:35 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1.395 kB]
+Get:36 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main amd64 Packages [10,7 kB]
+Get:37 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main Translation-en [5.620 B]
+Get:38 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [398 kB]
+Get:39 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 c-n-f Metadata [572 B]
+Get:40 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [890 kB]
+Get:41 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main arm64 Packages [42,0 kB]
+Get:42 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main i386 Packages [4.168 B]
+Get:43 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [622 kB]
+Ign:8 https://repo.skype.com/deb stable InRelease
+Get:44 http://archive.ubuntu.com/ubuntu jammy/main Translation-en [510 kB]
+Get:45 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main all Packages [1.261 B]
+Get:46 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 Packages [171 kB]
+Get:47 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [175 kB]
+Get:48 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [19,0 kB]
+Get:49 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [37,2 kB]
+Get:50 http://security.ubuntu.com/ubuntu jammy-security/multiverse i386 Packages [1.356 B]
+Get:51 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [7.588 B]
+Get:52 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [228 B]
+Get:53 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main amd64 Packages [10,8 kB]
+Get:54 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main Translation-en [6.268 B]
+Get:55 http://archive.ubuntu.com/ubuntu jammy/main amd64 c-n-f Metadata [30,3 kB]
+Get:56 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [129 kB]
+Get:57 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy/main amd64 Packages [34,2 kB]
+Get:58 http://archive.ubuntu.com/ubuntu jammy/restricted i386 Packages [30,4 kB]
+Get:59 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main armhf Packages [15,0 kB]
+Get:60 https://packages.microsoft.com/repos/code stable/main amd64 Packages [18,5 kB]
+Get:61 http://archive.ubuntu.com/ubuntu jammy/restricted Translation-en [18,6 kB]
+Get:62 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 c-n-f Metadata [488 B]
+Get:63 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14,1 MB]
+Get:64 https://packages.microsoft.com/repos/code stable/main arm64 Packages [18,6 kB]
+Get:65 https://packages.microsoft.com/repos/code stable/main armhf Packages [18,7 kB]
+Get:66 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy/main Translation-en [7.144 B]
+Get:67 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main amd64 Packages [1.824 B]
+Get:68 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main i386 Packages [1.824 B]
+Get:69 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main Translation-en [1.592 B]
+Get:70 http://packages.linuxmint.com virginia/main i386 Packages [17,9 kB]
+Get:71 http://packages.linuxmint.com virginia/main amd64 Packages [18,5 kB]
+Get:72 http://packages.linuxmint.com virginia/upstream amd64 Packages [48,8 kB]
+Get:73 http://packages.linuxmint.com virginia/upstream i386 Packages [14,6 kB]
+Get:74 http://packages.linuxmint.com virginia/import amd64 Packages [8.338 B]
+Get:75 http://packages.linuxmint.com virginia/import i386 Packages [3.678 B]
+Get:76 http://packages.linuxmint.com virginia/backport amd64 Packages [54,9 kB]
+Get:77 http://packages.linuxmint.com virginia/backport i386 Packages [8.307 B]
+Ign:8 https://repo.skype.com/deb stable InRelease
+Get:78 http://archive.ubuntu.com/ubuntu jammy/universe i386 Packages [7.474 kB]
+Get:79 http://archive.ubuntu.com/ubuntu jammy/universe Translation-en [5.652 kB]
+Get:80 http://archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+Get:81 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+Get:82 http://archive.ubuntu.com/ubuntu jammy/multiverse i386 Packages [112 kB]
+Get:83 http://archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+Get:84 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8.372 B]
+Get:85 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [690 kB]
+Get:86 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1.987 kB]
+Get:87 http://archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [349 kB]
+Get:88 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [17,8 kB]
+Get:89 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [2.384 kB]
+Get:90 http://archive.ubuntu.com/ubuntu jammy-updates/restricted i386 Packages [38,9 kB]
+Get:91 http://archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [410 kB]
+Get:92 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 c-n-f Metadata [604 B]
+Get:93 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1.112 kB]
+Get:94 http://archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [726 kB]
+Get:95 http://archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [260 kB]
+Get:96 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [26,0 kB]
+Get:97 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [43,3 kB]
+Get:98 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse i386 Packages [4.752 B]
+Get:99 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [10,8 kB]
+Get:100 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [444 B]
+Get:101 http://archive.ubuntu.com/ubuntu jammy-backports/main i386 Packages [59,9 kB]
+Get:102 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [67,8 kB]
+Get:103 http://archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [11,1 kB]
+Get:104 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [388 B]
+Get:105 http://archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:106 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [28,8 kB]
+Get:107 http://archive.ubuntu.com/ubuntu jammy-backports/universe i386 Packages [17,3 kB]
+Get:108 http://archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16,5 kB]
+Get:109 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [672 B]
+Get:110 http://archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+Err:8 https://repo.skype.com/deb stable InRelease
+  503  Service Unavailable [IP: 104.81.140.169 443]
+Fetched 48,4 MB in 8s (6.242 kB/s)
+Reading package lists...
+W: Failed to fetch https://repo.skype.com/deb/dists/stable/InRelease  503  Service Unavailable [IP: 104.81.140.169 443]
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+
+Running check 'APT cache'
+rm -rf /var/lib/apt/lists/*
+DEBIAN_PRIORITY=critical apt-get update
+Failed to open /dev/tty: No such device or address
+Get:2 http://dl.google.com/linux/chrome/deb stable InRelease [1.825 B]
+Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:4 https://download.docker.com/linux/debian bookworm InRelease [43,3 kB]
+Get:5 https://dl.winehq.org/wine-builds/ubuntu jammy InRelease [8.041 B]
+Get:6 https://packages.microsoft.com/repos/edge stable InRelease [3.590 B]
+Get:7 https://deb.nodesource.com/node_18.x jammy InRelease [4.563 B]
+Get:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease [3.632 B]
+Get:9 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy InRelease [18,1 kB]
+Get:1 https://packages.microsoft.com/repos/code stable InRelease [3.590 B]
+Get:10 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Get:11 http://dl.google.com/linux/chrome/deb stable/main amd64 Packages [1.095 B]
+Get:12 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy InRelease [24,4 kB]
+Get:13 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy InRelease [24,6 kB]
+Ign:14 http://packages.linuxmint.com virginia InRelease
+Get:15 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy InRelease [18,3 kB]
+Get:16 https://dl.winehq.org/wine-builds/ubuntu jammy/main amd64 Packages [241 kB]
+Get:17 https://download.docker.com/linux/debian bookworm/stable amd64 Packages [29,4 kB]
+Get:18 http://packages.linuxmint.com virginia Release [24,1 kB]
+Get:19 https://dl.winehq.org/wine-builds/ubuntu jammy/main i386 Packages [240 kB]
+Get:20 https://dl.winehq.org/wine-builds/ubuntu jammy/main all Packages [928 B]
+Get:21 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1.769 kB]
+Get:22 http://packages.linuxmint.com virginia Release.gpg [833 B]
+Get:23 https://packages.microsoft.com/repos/edge stable/main amd64 Packages [10,6 kB]
+Get:24 https://deb.nodesource.com/node_18.x jammy/main amd64 Packages [776 B]
+Get:25 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [531 kB]
+Get:26 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [290 kB]
+Get:27 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main armhf Packages [15,0 kB]
+Get:28 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:29 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [13,2 kB]
+Get:30 http://security.ubuntu.com/ubuntu jammy-security/restricted i386 Packages [37,3 kB]
+Get:31 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [2.308 kB]
+Get:32 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main i386 Packages [4.100 B]
+Get:33 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main arm64 Packages [42,0 kB]
+Get:34 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:35 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main all Packages [1.261 B]
+Get:36 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main amd64 Packages [10,7 kB]
+Get:37 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 Packages [171 kB]
+Get:38 https://ppa.launchpadcontent.net/kicad/kicad-8.0-releases/ubuntu jammy/main Translation-en [5.620 B]
+Get:39 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main i386 Packages [4.168 B]
+Get:40 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main amd64 Packages [10,8 kB]
+Get:41 https://ppa.launchpadcontent.net/kicad/kicad-dev-nightly/ubuntu jammy/main Translation-en [6.268 B]
+Get:42 https://packages.microsoft.com/repos/code stable/main amd64 Packages [18,5 kB]
+Get:43 https://packages.microsoft.com/repos/code stable/main armhf Packages [18,7 kB]
+Get:44 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy/main amd64 Packages [34,2 kB]
+Get:45 https://packages.microsoft.com/repos/code stable/main arm64 Packages [18,6 kB]
+Get:46 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu jammy/main Translation-en [7.144 B]
+Get:47 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [398 kB]
+Get:48 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 c-n-f Metadata [572 B]
+Get:49 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [622 kB]
+Get:50 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main amd64 Packages [1.824 B]
+Get:51 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main i386 Packages [1.824 B]
+Get:52 https://ppa.launchpadcontent.net/yannubuntu/boot-repair/ubuntu jammy/main Translation-en [1.592 B]
+Get:53 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [890 kB]
+Get:54 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [175 kB]
+Get:55 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [19,0 kB]
+Get:56 http://security.ubuntu.com/ubuntu jammy-security/multiverse i386 Packages [1.356 B]
+Get:57 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [37,2 kB]
+Get:58 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [7.588 B]
+Get:59 http://packages.linuxmint.com virginia/main i386 Packages [17,9 kB]
+Get:60 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [228 B]
+Get:61 http://archive.ubuntu.com/ubuntu jammy/main i386 Packages [1.040 kB]
+Get:62 http://packages.linuxmint.com virginia/main amd64 Packages [18,5 kB]
+Get:63 http://packages.linuxmint.com virginia/upstream amd64 Packages [48,8 kB]
+Get:64 http://packages.linuxmint.com virginia/upstream i386 Packages [14,6 kB]
+Get:65 http://packages.linuxmint.com virginia/import amd64 Packages [8.338 B]
+Get:66 http://packages.linuxmint.com virginia/import i386 Packages [3.678 B]
+Get:67 http://packages.linuxmint.com virginia/backport i386 Packages [8.307 B]
+Get:68 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1.395 kB]
+Get:69 http://packages.linuxmint.com virginia/backport amd64 Packages [54,9 kB]
+Get:70 http://archive.ubuntu.com/ubuntu jammy/main Translation-en [510 kB]
+Get:71 http://archive.ubuntu.com/ubuntu jammy/main amd64 c-n-f Metadata [30,3 kB]
+Get:72 http://archive.ubuntu.com/ubuntu jammy/restricted i386 Packages [30,4 kB]
+Get:73 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [129 kB]
+Get:74 http://archive.ubuntu.com/ubuntu jammy/restricted Translation-en [18,6 kB]
+Get:75 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 c-n-f Metadata [488 B]
+Get:76 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14,1 MB]
+Get:77 http://archive.ubuntu.com/ubuntu jammy/universe i386 Packages [7.474 kB]
+Get:78 http://archive.ubuntu.com/ubuntu jammy/universe Translation-en [5.652 kB]
+Get:79 http://archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+Get:80 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+Get:81 http://archive.ubuntu.com/ubuntu jammy/multiverse i386 Packages [112 kB]
+Get:82 http://archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+Get:83 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8.372 B]
+Get:84 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1.987 kB]
+Get:85 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [690 kB]
+Get:86 http://archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [349 kB]
+Get:87 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [17,8 kB]
+Get:88 http://archive.ubuntu.com/ubuntu jammy-updates/restricted i386 Packages [38,9 kB]
+Get:89 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [2.384 kB]
+Get:90 http://archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [410 kB]
+Get:91 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 c-n-f Metadata [604 B]
+Get:92 http://archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [726 kB]
+Get:93 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1.112 kB]
+Get:94 http://archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [260 kB]
+Get:95 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [26,0 kB]
+Get:96 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [43,3 kB]
+Get:97 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse i386 Packages [4.752 B]
+Get:98 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [10,8 kB]
+Get:99 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [444 B]
+Get:100 http://archive.ubuntu.com/ubuntu jammy-backports/main i386 Packages [59,9 kB]
+Get:101 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [67,8 kB]
+Get:102 http://archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [11,1 kB]
+Get:103 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [388 B]
+Get:104 http://archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:105 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [28,8 kB]
+Get:106 http://archive.ubuntu.com/ubuntu jammy-backports/universe i386 Packages [17,3 kB]
+Get:107 http://archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16,5 kB]
+Get:108 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [672 B]
+Get:109 http://archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+Fetched 48,4 MB in 8s (5.969 kB/s)
+Reading package lists...
+Check succeeded:  APT cache
+
+Running check 'System snapshots'
+Check succeeded:  System snapshots
+
+Running check 'Held packages'
+Check succeeded:  Held packages
+
+Running check 'Package repositories'
+
+Running check 'Package repositories'
+
+Running check 'Package repositories'
+
+Running check 'Package repositories'
+
+Running check 'Package repositories'
+
+Fixing check 'Package repositories'
+Mint repository last modified on 2024-08-26 15:42:33
+
+Fixing check 'Package repositories'
+Mint repository last modified on 2024-08-26 15:42:33
+
+Fixing check 'Package repositories'
+Mint repository last modified on 2024-08-26 15:42:33
+Check succeeded:  Package repositories
+
+Running check 'Foreign packages'
+
+Fixing check 'Foreign packages'
+DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt-get install --allow-downgrades -fyq -o Dpkg::Options::="--force-confold" -o Dpkg::Options::="--force-overwrite" boot-repair=4ppa200 boot-sav=4ppa200 boot-sav-extra=4ppa200 chromium-browser=2020.10.27 cmake=3.22.1-1ubuntu1.22.04.2 cmake-data=3.22.1-1ubuntu1.22.04.2 dotnet-host=6.0.132-0ubuntu1~22.04.1 dotnet-sdk-6.0=6.0.132-0ubuntu1~22.04.1 gdebi=0.9.5.7xmint10 gdebi-core=0.9.5.7xmint10 kicad=6.0.2+dfsg-1 kicad-demos=6.0.2+dfsg-1 kicad-footprints=6.0.2-1 kicad-libraries=6.0.2+dfsg-1 kicad-packages3d=6.0.2-1 kicad-symbols=6.0.2-1 kicad-templates=6.0.0-1 libgd3=2.3.0-2ubuntu2 libgd3:i386=2.3.0-2ubuntu2 libpcre16-3=2:8.39-13ubuntu0.22.04.1 libpcre2-16-0=10.39-3ubuntu0.1 libpcre2-32-0=10.39-3ubuntu0.1 libpcre2-8-0=10.39-3ubuntu0.1 libpcre2-8-0:i386=10.39-3ubuntu0.1 libpcre2-dev=10.39-3ubuntu0.1 libpcre2-posix3=10.39-3ubuntu0.1 libpcre3=2:8.39-13ubuntu0.22.04.1 libpcre3-dev=2:8.39-13ubuntu0.22.04.1 libpcre32-3=2:8.39-13ubuntu0.22.04.1 libpcre3:i386=2:8.39-13ubuntu0.22.04.1 libpcrecpp0v5=2:8.39-13ubuntu0.22.04.1 libvkd3d1=1.1-5 libvkd3d1:i386=1.1-5 libxml2=2.9.13+dfsg-1ubuntu0.4 libxml2-dev=2.9.13+dfsg-1ubuntu0.4 libxml2:i386=2.9.13+dfsg-1ubuntu0.4 mysql-common=5.8+1.0.8 nodejs=12.22.9~dfsg-1ubuntu3.6 occt-misc=7.5.1+dfsg1-2ubuntu1 php-common=2:92ubuntu1 php-intl=2:8.1+92ubuntu1 php8.1-common=8.1.2-1ubuntu2.18 php8.1-intl=8.1.2-1ubuntu2.18 python3-libxml2=2.9.13+dfsg-1ubuntu0.4 python3-wxgtk4.0=4.0.7+dfsg-13build1 rpi-imager=1.7.2+noembed-0ubuntu1 skypeforlinux=8.98.0.206 thunderbird=1:115.13.0+build5-0ubuntu0.22.04.1 thunderbird-gnome-support=1:115.13.0+build5-0ubuntu0.22.04.1 thunderbird-locale-en=1:115.13.0+build5-0ubuntu0.22.04.1 thunderbird-locale-en-us=1:115.13.0+build5-0ubuntu0.22.04.1 thunderbird-locale-nl=1:115.13.0+build5-0ubuntu0.22.04.1
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ libocct-foundation-7.6 : Breaks: libocct-foundation-7.5 but 7.5.1+dfsg1-2ubuntu1 is to be installed
+ libocct-modeling-algorithms-7.6 : Breaks: libocct-modeling-algorithms-7.5 but 7.5.1+dfsg1-2ubuntu1 is to be installed
+ libocct-modeling-data-7.6 : Breaks: libocct-modeling-data-7.5 but 7.5.1+dfsg1-2ubuntu1 is to be installed
+E: Error, pkgProblemResolver::Resolve generated breaks, this may be caused by held packages.
+Error - Return code: 100
+
+Fixing check 'Foreign packages'
+DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt-get install --allow-downgrades -fyq -o Dpkg::Options::="--force-confold" -o Dpkg::Options::="--force-overwrite" boot-repair=4ppa200 boot-sav=4ppa200 boot-sav-extra=4ppa200 chromium-browser=2020.10.27 cmake=3.22.1-1ubuntu1.22.04.2 cmake-data=3.22.1-1ubuntu1.22.04.2 dotnet-host=6.0.132-0ubuntu1~22.04.1 dotnet-sdk-6.0=6.0.132-0ubuntu1~22.04.1 gdebi=0.9.5.7xmint10 gdebi-core=0.9.5.7xmint10 kicad=6.0.2+dfsg-1 kicad-demos=6.0.2+dfsg-1 kicad-footprints=6.0.2-1 kicad-libraries=6.0.2+dfsg-1 kicad-packages3d=6.0.2-1 kicad-symbols=6.0.2-1 kicad-templates=6.0.0-1 libgd3=2.3.0-2ubuntu2 libgd3:i386=2.3.0-2ubuntu2 libpcre16-3=2:8.39-13ubuntu0.22.04.1 libpcre2-16-0=10.39-3ubuntu0.1 libpcre2-32-0=10.39-3ubuntu0.1 libpcre2-8-0=10.39-3ubuntu0.1 libpcre2-8-0:i386=10.39-3ubuntu0.1 libpcre2-dev=10.39-3ubuntu0.1 libpcre2-posix3=10.39-3ubuntu0.1 libpcre3=2:8.39-13ubuntu0.22.04.1 libpcre3-dev=2:8.39-13ubuntu0.22.04.1 libpcre32-3=2:8.39-13ubuntu0.22.04.1 libpcre3:i386=2:8.39-13ubuntu0.22.04.1 libpcrecpp0v5=2:8.39-13ubuntu0.22.04.1 libvkd3d1=1.1-5 libvkd3d1:i386=1.1-5 libxml2=2.9.13+dfsg-1ubuntu0.4 libxml2-dev=2.9.13+dfsg-1ubuntu0.4 libxml2:i386=2.9.13+dfsg-1ubuntu0.4 mysql-common=5.8+1.0.8 nodejs=12.22.9~dfsg-1ubuntu3.6 occt-misc=7.5.1+dfsg1-2ubuntu1 php-common=2:92ubuntu1 php-intl=2:8.1+92ubuntu1 php8.1-common=8.1.2-1ubuntu2.18 php8.1-intl=8.1.2-1ubuntu2.18 python3-libxml2=2.9.13+dfsg-1ubuntu0.4 python3-wxgtk4.0=4.0.7+dfsg-13build1 rpi-imager=1.7.2+noembed-0ubuntu1 skypeforlinux=8.98.0.206 thunderbird=1:115.13.0+build5-0ubuntu0.22.04.1 thunderbird-gnome-support=1:115.13.0+build5-0ubuntu0.22.04.1 thunderbird-locale-en=1:115.13.0+build5-0ubuntu0.22.04.1 thunderbird-locale-en-us=1:115.13.0+build5-0ubuntu0.22.04.1 thunderbird-locale-nl=1:115.13.0+build5-0ubuntu0.22.04.1
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ libocct-foundation-7.6 : Breaks: libocct-foundation-7.5 but 7.5.1+dfsg1-2ubuntu1 is to be installed
+ libocct-modeling-algorithms-7.6 : Breaks: libocct-modeling-algorithms-7.5 but 7.5.1+dfsg1-2ubuntu1 is to be installed
+ libocct-modeling-data-7.6 : Breaks: libocct-modeling-data-7.5 but 7.5.1+dfsg1-2ubuntu1 is to be installed
+E: Error, pkgProblemResolver::Resolve generated breaks, this may be caused by held packages.
+Error - Return code: 100
+mintupgrade-inhibit-power: no process found
