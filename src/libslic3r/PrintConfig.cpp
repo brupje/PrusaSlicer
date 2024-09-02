@@ -2786,6 +2786,13 @@ void PrintConfigDef::init_fff_params()
 
 
 
+    def = this->add("spiral_vase_bottom_extra_layer_perimeters", coInt);
+    def->label = L("Extra perimeters on bottom layers");
+    def->tooltip = L("Add X extra perimeters on bottom layers");
+    def->category = L("Spiral Vase");
+    def->mode = comAdvanced;
+    def->set_default_value(new ConfigOptionInt(0));
+
     def = this->add("spiral_vase_bottom_fillet", coBool);
     def->label = L("Enable bottom fillet");
     def->tooltip = L("Create a fillet on top of the bottom layers");

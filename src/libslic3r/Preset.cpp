@@ -445,7 +445,7 @@ void Preset::set_visible_from_appconfig(const AppConfig &app_config)
 }
 
 static std::vector<std::string> s_Preset_print_options {
-    "layer_height", "first_layer_height", "perimeters", "spiral_vase","spiral_vase_bottom_fillet", "spiral_vase_bottom_fillet_curve", "spiral_vase_bottom_lock_perimeters","spiral_vase_bottom_lock_num_layers", "slice_closing_radius", "slicing_mode",
+    "layer_height", "first_layer_height", "perimeters", "spiral_vase","spiral_vase_bottom_extra_layer_perimeters","spiral_vase_bottom_fillet", "spiral_vase_bottom_fillet_curve", "spiral_vase_bottom_lock_perimeters","spiral_vase_bottom_lock_num_layers", "slice_closing_radius", "slicing_mode",
     "top_solid_layers", "top_solid_min_thickness", "bottom_solid_layers", "bottom_solid_min_thickness",
     "extra_perimeters", "extra_perimeters_on_overhangs", "avoid_crossing_curled_overhangs", "avoid_crossing_perimeters", "thin_walls", "overhangs",
     "seam_position","staggered_inner_seams", "external_perimeters_first", "fill_density", "fill_pattern", "top_fill_pattern", "bottom_fill_pattern",

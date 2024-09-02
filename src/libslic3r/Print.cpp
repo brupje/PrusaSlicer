@@ -211,6 +211,7 @@ bool Print::invalidate_state_by_config_options(const ConfigOptionResolver & /* n
             // Therefore toggling the Spiral Vase on / off requires complete reslicing.
             || opt_key == "spiral_vase"
             || opt_key == "spiral_vase_bottom_fillet"
+            || opt_key == "spiral_vase_bottom_extra_layer_perimeters"
             || opt_key == "spiral_vase_bottom_fillet_curve"
             || opt_key == "spiral_vase_bottom_lock_perimeters"
             || opt_key == "spiral_vase_bottom_lock_num_layers"

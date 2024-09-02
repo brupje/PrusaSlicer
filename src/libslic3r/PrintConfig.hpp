@@ -914,6 +914,7 @@ PRINT_CONFIG_CLASS_DERIVED_DEFINE(
     ((ConfigOptionInts,               slowdown_below_layer_time))
     ((ConfigOptionFloat,              solid_infill_acceleration))
     ((ConfigOptionBool,               spiral_vase))
+    ((ConfigOptionInt,                spiral_vase_bottom_extra_layer_perimeters))
     ((ConfigOptionBool,               spiral_vase_bottom_fillet))
     ((ConfigOptionInt,                spiral_vase_bottom_fillet_curve))
     ((ConfigOptionFloat,              spiral_vase_bottom_lock_perimeters))

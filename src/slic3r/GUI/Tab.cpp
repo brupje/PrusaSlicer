@@ -1678,6 +1678,8 @@ void TabPrint::build()
         optgroup->append_single_option_line("min_feature_size");
 
         optgroup = page->new_optgroup(L("Spiral vase"));
+
+        optgroup->append_single_option_line("spiral_vase_bottom_extra_layer_perimeters");
         optgroup->append_single_option_line("spiral_vase_bottom_fillet");
         optgroup->append_single_option_line("spiral_vase_bottom_fillet_curve");
         optgroup->append_single_option_line("spiral_vase_bottom_lock_perimeters");

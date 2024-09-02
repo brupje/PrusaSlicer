@@ -98,15 +98,20 @@ void LayerRegion::make_perimeters(
 
 
     float internal_width = region_config.perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.perimeter_extrusion_width.value;
-                
+
+    if (print_config.spiral_vase 
+        && (print_config.spiral_vase_bottom_extra_layer_perimeters.value > 0)
+        && (this->layer()->id() < region_config.bottom_solid_layers.value )) {
+        region_config.perimeters.value = print_config.spiral_vase_bottom_extra_layer_perimeters.value + 1;
+    }
 
     if (print_config.spiral_vase && 
         (print_config.spiral_vase_bottom_lock_perimeters.value > 0 )) {
 
 
         if             (
-        (this->layer()->id() >= (region_config.bottom_solid_layers.value) ) &&
-        (this->layer()->id() < (region_config.bottom_solid_layers.value) + print_config.spiral_vase_bottom_lock_num_layers )
+        (this->layer()->id() >= region_config.bottom_solid_layers.value ) &&
+        (this->layer()->id() < region_config.bottom_solid_layers.value + print_config.spiral_vase_bottom_lock_num_layers )
         
         ) {
 
