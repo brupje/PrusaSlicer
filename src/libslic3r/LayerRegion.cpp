@@ -108,10 +108,12 @@ void LayerRegion::make_perimeters(
     const PrintConfig       &print_config  = this->layer()->object()->print()->config();
     PrintRegionConfig region_config = this->region().config();
     // This needs to be in sync with PrintObject::_slice() slicing_mode_normal_below_layer!
-    bool spiral_vase = print_config.spiral_vase && 
-        //FIXME account for raft layers.
-        (this->layer()->id() >= size_t(region_config.bottom_solid_layers.value) &&
-         this->layer()->print_z >= region_config.bottom_solid_min_thickness - EPSILON);
+
+
+    uint16_t fillet_height = print_config.spiral_vase_bottom_lock_perimeters.value  / this->layer()->height;
+
+    
+    bool spiral_vase = print_config.spiral_vase.value;
 
 
     float internal_width = region_config.perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.perimeter_extrusion_width.value;
@@ -119,7 +121,9 @@ void LayerRegion::make_perimeters(
     if (print_config.spiral_vase 
         && (print_config.spiral_vase_bottom_extra_layer_perimeters.value > 0)
         && (this->layer()->id() < region_config.bottom_solid_layers.value )) {
+
         region_config.perimeters.value = print_config.spiral_vase_bottom_extra_layer_perimeters.value + 1;
+        spiral_vase = false;
     }
 
     if (print_config.spiral_vase && 
@@ -147,12 +151,10 @@ void LayerRegion::make_perimeters(
 
 
             BOOST_LOG_TRIVIAL(error) << "Override perimeter width: " <<  std::to_string(region_config.perimeter_extrusion_width.value) << " mm";
+            spiral_vase = false;
         }
         else if (print_config.spiral_vase_bottom_fillet.value && ( this->layer()->id() >= region_config.bottom_solid_layers.value)) {
 
-            uint16_t fillet_height = print_config.spiral_vase_bottom_lock_perimeters.value  / this->layer()->height;
-
-            
 
 
             if (this->layer()->id() < (region_config.bottom_solid_layers.value) + print_config.spiral_vase_bottom_lock_num_layers +fillet_height) {
@@ -169,20 +171,20 @@ void LayerRegion::make_perimeters(
 
                 
                 float external_width = region_config.external_perimeter_extrusion_width.value ==0 ? this->layer()->object()->config().extrusion_width : region_config.external_perimeter_extrusion_width.value;
-                if (layerwidth > external_width) {
+                if ((layerwidth > external_width) && 
+                    ((layerwidth  - external_width) > internal_width*0.7)) {
                     region_config.perimeters.value =  round((layerwidth - external_width) / internal_width) + 1;
                     
                     internal_width = (layerwidth  - external_width)/ (region_config.perimeters.value-1);
 
-                    BOOST_LOG_TRIVIAL(error) << "Layer "<<this->layer()->id()<< " Fillet layer: " << cur_fillet_layer  << "/" << fillet_height << " " << std::to_string(layerwidth) << "mm==" << region_config.perimeters.value << " perimeters@" << std::to_string(region_config.perimeter_extrusion_width.value) << "mm";
+                    BOOST_LOG_TRIVIAL(error) << "Layer "<<this->layer()->id()<< " Fillet layer: " << cur_fillet_layer  << "/" << fillet_height << " " << std::to_string(layerwidth) << "mm==" << (region_config.perimeters.value-1) << " internal perimeters@" << std::to_string(internal_width) << "mm";
 
-
+                    spiral_vase = false;
                 }
-                else
+                else  {
                     BOOST_LOG_TRIVIAL(error) << "Layer "<<this->layer()->id()<< " Fillet layer: " << cur_fillet_layer  << "/" << fillet_height << " " << std::to_string(layerwidth) << "mm==smaller or equal to external perimeter";
-
-
-                
+                    spiral_vase = true;
+                }
 
             }
         }
