@@ -7,7 +7,7 @@ on:
 
 jobs:
   static_analysis_dev:
-    uses: brupje/PrusaSlicer/actions/.github/workflows/static_analysis.yml@master
+    uses: ./static_analysis.yml@master
     secrets: inherit
     with:
       branch: ms_dev
