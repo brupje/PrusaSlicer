@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=PrusaSlicer 2.9.4
+Exec=/usr/bin/prusa-slicer
+Icon=PrusaSlicer
+Type=Application
+Categories=Utility;

@@ -23,3 +23,5 @@ deps/build-linux/*
 CMakeUserPresets.json
 build2
 build-default
+*.AppImage
+appimage/prusaslicer.AppDir/usr
